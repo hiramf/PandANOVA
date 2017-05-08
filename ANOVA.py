@@ -63,9 +63,9 @@ class ANOVA(object):
                 ss += (sample - mean)**2
             return ss
         global dfb
-        dfb = self.k-1 #degress of freedom between groups
+        dfb = self.k-1  #degress of freedom between groups
         global dfw
-        dfw = self.N-self.k #degress of freedom within groups
+        dfw = self.N - self.k #degress of freedom within groups
         GM = self.grandmean()
         sumsquareswithin = sum([groupss(group) for group in self.groups]) 
         sumsquaresbetween = sum([self.samples[group]*((self.means[group] - GM)**2) for group in self.groups])
@@ -75,10 +75,16 @@ class ANOVA(object):
         Fstat = meansquaresbetween/meansquareswithin
         return Fstat
     def P(self):
-        return stats.f.sf(Fstat, dfb, dfw)
+        global P
+        P = stats.f.sf(self.F(), dfb, dfw)
+        return P
 
     
     
-
-df = pd.DataFrame({'foo':[1,2,3,4,5], 'bar':['a', 'a', 'b', 'b', 'b']})
-x = ANOVA(df, 'foo', 'bar')
+#example
+# df = pd.DataFrame({'foo':[1,2,3,4,5], 'bar':['a', 'a', 'b', 'b', 'b']})
+# x = ANOVA(df, 'foo', 'bar')
+# x.grandmean(weighted=True) # = 3.0
+# x.grandmean(weighted = False) # = 2.75
+# x.Fstat() # 9.0
+# x.P() # = 0.058
