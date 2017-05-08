@@ -16,4 +16,4 @@ The IV column labels each row as belonging to a particular group. PandANOVA will
 * [Hiram Foster](mailto:hiramfoster.co@gmail.com)
 
 # License:
-This project is licensed under the MIT license. See the LICENSE.md file for details.
+This project is licensed under the MIT license. See the [LICENSE.md](https://github.com/hiramf/anova/LICENSE.md) file for details.
