@@ -84,11 +84,12 @@ class ANOVA(object):
 '''
 #example
 df = pd.DataFrame({'foo':[1,2,3,4,5], 'bar':['a', 'a', 'b', 'b', 'b']})
+print(df)
 x = ANOVA(df, 'foo', 'bar')
-print('Grandmean (Weighted): {}'.format(x.grandmean(weighted=True))) # = 3.0
-print ('Grandmean (Unweighted): {}'.format(x.grandmean(weighted=False))) # = 2.75
-print ('F-Stat (Weighted): {}'.format(x.F(weighted=True))) # 9.0
-print ('F-Stat (Unweighted): {}'.format(x.F(weighted=False)))
-print ('P-Value (Weighted): {}'.format(x.P(weighted=True))) # 0.058
-print ('P-Value (Unweighted): {}'.format(x.P(weighted=False))) # 0.058
+print('Grandmean (Weighted): {}\n'.format(x.grandmean(weighted=True, verbose=True))) # = 3.0
+print ('Grandmean (Unweighted): {}\n'.format(x.grandmean(weighted=False, verbose=True))) # = 2.75
+print ('F-Stat (Weighted): {}\n'.format(x.F(weighted=True))) # 9.0
+print ('F-Stat (Unweighted): {}\n'.format(x.F(weighted=False)))
+print ('P-Value (Weighted): {}\n'.format(x.P(weighted=True))) # 0.058
+print ('P-Value (Unweighted): {}\n'.format(x.P(weighted=False))) # 0.058
 '''
