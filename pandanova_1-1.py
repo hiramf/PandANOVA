@@ -81,11 +81,14 @@ class ANOVA(object):
         return stats.f.sf(self.F(weighted=weighted), self.deg_freedom_between, self.deg_freedom_within)
 
     
-
+'''
 #example
 df = pd.DataFrame({'foo':[1,2,3,4,5], 'bar':['a', 'a', 'b', 'b', 'b']})
 x = ANOVA(df, 'foo', 'bar')
-x.grandmean(weighted=True) # = 3.0
-x.grandmean(weighted=False) # = 2.75
-x.F() # 9.0
-x.P() # = 0.058
+print('Grandmean (Weighted): {}'.format(x.grandmean(weighted=True))) # = 3.0
+print ('Grandmean (Unweighted): {}'.format(x.grandmean(weighted=False))) # = 2.75
+print ('F-Stat (Weighted): {}'.format(x.F(weighted=True))) # 9.0
+print ('F-Stat (Unweighted): {}'.format(x.F(weighted=False)))
+print ('P-Value (Weighted): {}'.format(x.P(weighted=True))) # 0.058
+print ('P-Value (Unweighted): {}'.format(x.P(weighted=False))) # 0.058
+'''
